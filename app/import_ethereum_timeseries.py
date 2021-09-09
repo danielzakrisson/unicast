@@ -5,7 +5,7 @@ import numpy as np
 from datetime import datetime
 
 
-def etherium_data():
+def ethereum_data():
     # TheGraph GraphQL queries
     # Subgraph ID: QmWTrJJ9W8h3JE19FhCzzPYsJ2tgXZCdUqnbyuo64ToTBN
     # Subgraph URL: https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v2

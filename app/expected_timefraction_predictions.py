@@ -1,5 +1,5 @@
 import numpy as np
-from app.import_etherium_timeseries import etherium_data
+from app.import_ethereum_timeseries import ethereum_data
 
 def time_in_zones(x, n):
     nb = np.zeros((len(x) - n, n - 1))
@@ -11,7 +11,7 @@ def time_in_zones(x, n):
 
 
 def expected_timefraction(lower_bound, upper_bound, time_horizon):
-    time, eth_value = etherium_data()
+    time, eth_value = ethereum_data()
     r_data = eth_value[1:] / eth_value[:-1]
     r = time_in_zones(r_data, time_horizon)
     time_fraction = np.mean(np.array([len(np.where((r_ < upper_bound) * (r_ > lower_bound))[0]) for r_ in r])) / \
@@ -20,7 +20,7 @@ def expected_timefraction(lower_bound, upper_bound, time_horizon):
 
 
 def best_range(desired_timefraction=0.8, time_horizon=100):
-    time, eth_value = etherium_data()
+    time, eth_value = ethereum_data()
     r_data = eth_value[1:] / eth_value[:-1]
     r = time_in_zones(r_data, time_horizon)
     time_fraction = []

@@ -1,6 +1,6 @@
 from typing import Optional
 import numpy as np
-from import_etherium_timeseries import etherium_data
+from import_ethereum_timeseries import ethereum_data
 from expected_timefraction_predictions import expected_timefraction
 
 from fastapi import FastAPI
