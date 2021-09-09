@@ -6,7 +6,7 @@ UniCast provides the tools, building blocks and examples to build, train and ser
 
 The goal of the project is to provide these as free to use and open source examples that can be copied, improved and used as starting points for any number of other machine learning projects in web3. However, we do think that Uniswap v3 is a perfect place to start.
 
-![UniCast](unicast.png)
+<img src="unicast.png" width=60%>
 
 The initial model predicts volatility in Uniswap v3 trading pairs. One way to use these predictions is to find the Uniswap v3 LP range that maximises fees. The model will be deployed with an API that given a probability number and time period suggest a range for LP range.
 
