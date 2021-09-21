@@ -15,4 +15,4 @@ def model_predict(inp, model_data=[]):
 
         res = best_range(timefraction, time_horizon)
         name = 'Best range'
-    return {name: res}
+    return {name: res, }
