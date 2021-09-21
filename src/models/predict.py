@@ -1,4 +1,4 @@
-from src.models.expected_timefraction_predictions import expected_timefraction, best_range
+from models.src.models.expected_timefraction_predictions import expected_timefraction, best_range
 
 
 def model_predict(inp, model_data=[]):

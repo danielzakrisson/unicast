@@ -1,5 +1,5 @@
 import numpy as np
-from src.models.import_ethereum_timeseries import ethereum_data
+from models.src.models.import_ethereum_timeseries import ethereum_data
 
 def time_in_zones(x, n):
     nb = np.zeros((len(x) - n, n - 1))
