@@ -10,17 +10,34 @@ def time_in_zones(x, n):
     return nb
 
 
-def expected_timefraction(lower_bound, upper_bound, time_horizon):
+def expected_timefraction(lower_bound, upper_bound, time_horizon, historic_point=None):
+    
+    metadata = {}
     time, eth_value = ethereum_data()
+    
+    #if historic_point:
+    #    cut_point = np.argmin(abs(time - historic_point))
+    #    metadata = {"cut_date": eth_value[cut_point]}
+    #    eth_value = eth_value[:cut_point+1]
+        
     r_data = eth_value[1:] / eth_value[:-1]
     r = time_in_zones(r_data, time_horizon)
     time_fraction = np.mean(np.array([len(np.where((r_ < upper_bound) * (r_ > lower_bound))[0]) for r_ in r])) / \
                     r.shape[1]
-    return time_fraction
+    
+    return time_fraction#, metadata
 
 
-def best_range(desired_timefraction=0.8, time_horizon=100):
+def best_range(desired_timefraction=0.8, time_horizon=100, historic_point=None):
+    
+    metadata = {}
+
+    
     time, eth_value = ethereum_data()
+    #if historic_point:
+    #    cut_point = np.argmin(abs(time - historic_point))
+    #    metadata = {"cut_date": eth_value[cut_point]}
+    #    eth_value = eth_value[:cut_point+1]
     r_data = eth_value[1:] / eth_value[:-1]
     r = time_in_zones(r_data, time_horizon)
     time_fraction = []
@@ -45,4 +62,4 @@ def best_range(desired_timefraction=0.8, time_horizon=100):
         if delta < best_delta and t_fraction >= desired_timefraction:
             best_l_index = l_index
             best_delta = delta
-    return bounds[best_l_index], bounds[best_l_index + best_delta]
+    return bounds[best_l_index], bounds[best_l_index + best_delta], metadata
