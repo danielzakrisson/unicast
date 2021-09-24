@@ -62,4 +62,4 @@ def best_range(desired_timefraction=0.8, time_horizon=100, historic_point=None):
         if delta < best_delta and t_fraction >= desired_timefraction:
             best_l_index = l_index
             best_delta = delta
-    return bounds[best_l_index], bounds[best_l_index + best_delta], metadata
+    return bounds[best_l_index], bounds[best_l_index + best_delta]

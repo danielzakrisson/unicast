@@ -11,19 +11,19 @@ def model_predict(inp, model_data=[]):
     #        historic_point = datetime.datetime.strptime(historic_point, "%m/%d/%Y, %H:%M:%S")
     #        metadata['historic point'] = historic_point
 
-    if True:#inp.prediction_type == 'Expected_timefraction':
+    if inp.prediction_type == 'Expected_timefraction':
         
         lower_bound = inp.lower_bound
         upper_bound = inp.upper_bound
         time_horizon = inp.time_horizon
         #res = 17
-        res = expected_timefraction(lower_bound, upper_bound)
+        res = expected_timefraction(lower_bound, upper_bound, time_horizon)
         name = "Expected_timefraction"
     else:
         
         timefraction = inp.time_fraction
         time_horizon = inp.time_horizon
-        res, metadata2 = best_range(timefraction, time_horizon)
+        res = best_range(timefraction, time_horizon)
         name = "Best range"
         
-    return {name: res}#, "metadata": metadata}
+    return {name: res}
