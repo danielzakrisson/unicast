@@ -1,11 +1,13 @@
 FROM python:3.8
 
-WORKDIR /fastapi-app
+WORKDIR /unicast
 
 COPY requirements.txt .
+COPY src /unicast/src
 
 RUN pip install -r requirements.txt
 
-COPY ./app ./app
 
-CMD ["python", "./app/main.py"]
+ENV PYTHONPATH "${PYTHONPATH}:/unicast"
+EXPOSE 8000
+CMD ["python", "src/models/main.py"]
