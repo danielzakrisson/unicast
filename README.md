@@ -14,6 +14,13 @@ For example, a user might set a target time frame of 30 days and a probability r
 
 In closing, the main point of UniCast is not to provide a great model (even if we think it will be useful), but to provide tools for the community to build any number of better or worse, private or public machine learning models for use in web3.
 
+### Docker Deployment
+Create Unicast endpoints with Docker and fast-api.  
+Build docker image:
+`docker build -t <your_username>/unicast .`  
+Run the image:
+`docker run -p 8000:8000 <your_username>/unicast`
+
 
 ### About Scaleout Labs and more info
 Scaleout Labs is building decentralised machine learning solutions, with a focus on web3. The Scaleout Labs team is also a main contributor to the open source federated learning framework FEDn, and the resource manager STACKn.
