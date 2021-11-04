@@ -14,12 +14,36 @@ For example, a user might set a target time frame of 30 days and a probability r
 
 In closing, the main point of UniCast is not to provide a great model (even if we think it will be useful), but to provide tools for the community to build any number of better or worse, private or public machine learning models for use in web3.
 
-### Docker Deployment
+### Docker Deployment tutorial
 Create Unicast endpoints with Docker and fast-api.  
 Build docker image:
 `docker build -t <your_username>/unicast .`  
-Run the image:
+Start docker container:
 `docker run -p 8000:8000 <your_username>/unicast`
+This will generate endpoints that can be used in e.g. a python script:  `
+
+```
+import requests
+import json
+```
+define a url of format:  ADRESS:PORT/UNICAST-FUNCTION, here we show a local deployement
+with the default port 8000 and the unicast function best_range
+```
+url = 'http://0.0.0.0:8000/best_range'
+```
+Set input values: time_fraction, time_horizon and coingecko_kwargs:
+```
+inp = {
+    "time_fraction": 0.5, 
+    "time_horizon": 30,
+    "coingecko_kwargs": {'id': 'bitcoin', 'vs_currency': 'usd', 'days': '5000'}
+}
+```
+Call the api:
+```
+res = json.loads(requests.post(url, headers = {'Content-type': 'application/json'}, json=inp).json())
+```
+this will return a json with the result value.
 
 
 ### About Scaleout Labs and more info
