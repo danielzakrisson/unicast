@@ -15,18 +15,18 @@ For example, a user might set a target time frame of 30 days and a probability r
 In closing, the main point of UniCast is not to provide a great model (even if we think it will be useful), but to provide tools for the community to build any number of better or worse, private or public machine learning models for use in web3.
 
 ### Docker Deployment tutorial
-Create Unicast endpoints with Docker and fast-api.  
-Build docker image:
+Docker can be used to deploy Unicast and create an endpoint using fast-api.  
+In the project folder, build the Docker image with:
 `docker build -t <your_username>/unicast .`  
-Start docker container:
+Start the Docker container:
 `docker run -p 8000:8000 <your_username>/unicast`
-This will generate endpoints that can be used in e.g. a python script:  `
+This will generate endpoints that can be called with curl or used in e.g. a python script:  `
 
 ```
 import requests
 import json
 ```
-define a url of format:  ADRESS:PORT/UNICAST-FUNCTION, here we show a local deployement
+define an url the the format:  ADRESS:PORT/UNICAST-FUNCTION, here we demonstrate a local deployement
 with the default port 8000 and the unicast function best_range
 ```
 url = 'http://0.0.0.0:8000/best_range'
@@ -45,12 +45,11 @@ res = json.loads(requests.post(url, headers = {'Content-type': 'application/json
 ```
 this will return a json with the result value.
 
+### About Scaleout and more info
 
-### About Scaleout Labs and more info
-Scaleout Labs is building decentralised machine learning solutions, with a focus on web3. The Scaleout Labs team is also a main contributor to the open source federated learning framework FEDn, and the resource manager STACKn.
+Scaleout is building decentralized machine learning solutions. The Scaleout team is also a main contributor to the open source federated learning framework FEDn, and the resource manager STACKn.
 
-For project updates:  
-Twitter (https://github.com/scaleoutlabs)  
-Discord (https://discord.gg/CCRgjpMsVA)  
-GitHub (https://github.com/scaleoutlabs)  
-Website (https://www.scaleoutsystems.com/scaleoutlabs)  
+
+For project updates:
+Twitter (https://twitter.com/0xUnicast)
+GitHub (https://github.com/unicast-project)
